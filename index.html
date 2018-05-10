@@ -109,7 +109,7 @@
     }];
 
     var beeConfig = {  
-      uid: 'test1-clientside',
+      uid: 'test2-clientside',
       container: 'bee-plugin-container',
       autosave: 15, 
       language: 'en-US',
@@ -119,7 +119,7 @@
       onSave: function(jsonFile, htmlFile) { 
         save('newsletter.html', htmlFile);
       },
-      onSaveAsTemplate: function(jsonFile) { // + thumbnail? 
+      onSaveAsTemplate: function(jsonFile,) { // + thumbnail? 
         save('newsletter-template.json', jsonFile);
       },
       onAutoSave: function(jsonFile) { // + thumbnail? 
@@ -151,10 +151,12 @@
 
     document.getElementById('choose-template').addEventListener('change', loadTemplate, false);
 
+
+  
     request(
       'POST', 
       'https://auth.getbee.io/apiauth',
-      'grant_type=password&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET',
+      'grant_type=password&client_id=ed67762a-b56d-492e-8b5c-81686b77cddc&client_secret=8r2qW1t2PD4MxhTaFEo5h6LU3DVVxd13yIBc5a3sesPo4m8hUCb',
       'application/x-www-form-urlencoded',
       function(token) {
         BeePlugin.create(token, beeConfig, function(beePluginInstance) {
@@ -169,6 +171,5 @@
             });
         });
       });
-
   </script>
 </html>
